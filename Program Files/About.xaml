@@ -1,0 +1,38 @@
+﻿<Window x:Class="Midterm___Cory_Bridgman_991199354.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Midterm___Cory_Bridgman_991199354"
+        mc:Ignorable="d"
+        Title="About" Height="450" Width="800"
+        x:Name="aboutWindow">
+    <Window.Background>
+        <RadialGradientBrush>
+            <GradientStop Color="#FF678086" Offset="1"/>
+            <GradientStop Color="#FFCDE6ED" Offset="0"/>
+        </RadialGradientBrush>
+    </Window.Background>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Padding="25,0,0,0" Style="{StaticResource menuStyle}">
+            <MenuItem Header="File" Margin="2.5,0">
+                <MenuItem Header="New" Style="{StaticResource menuItemStyle}"/>
+                <MenuItem Header="Save" Style="{StaticResource menuItemStyle}"/>
+                <MenuItem x:Name="mQuit" Header="Quit" Style="{StaticResource menuItemStyle}" Click="mQuit_Click"/>
+            </MenuItem>
+        </Menu>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+
+            <Label FontSize="24" FontWeight="Bold" HorizontalContentAlignment="Center">
+                ABOUT PAGE
+            </Label>
+            <TextBlock Width="435" Height="87" TextWrapping="Wrap">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Diam maecenas sed enim ut sem viverra aliquet. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa.
+            </TextBlock>
+            <TextBlock Width="435" Height="87" TextWrapping="Wrap">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt arcu non sodales neque sodales ut etiam sit.
+            </TextBlock>
+        </StackPanel>
+    </DockPanel>
+</Window>

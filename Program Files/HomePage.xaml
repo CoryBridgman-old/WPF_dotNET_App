@@ -1,0 +1,41 @@
+﻿<Window x:Name="homeWindow" x:Class="Midterm___Cory_Bridgman_991199354.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Midterm___Cory_Bridgman_991199354"
+        mc:Ignorable="d"
+        Title="HomePage" Height="400" Width="900" Closing="homeWindow_Closing">
+    <Window.Background>
+        <RadialGradientBrush>
+            <GradientStop Color="#FF678086" Offset="1"/>
+            <GradientStop Color="#FFCDE6ED" Offset="0"/>
+        </RadialGradientBrush>
+    </Window.Background>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Padding="25,0,0,0" Style="{StaticResource menuStyle}">
+            <MenuItem Header="File" Margin="2.5,0">
+                <MenuItem Header="New" Style="{StaticResource menuItemStyle}"/>
+                <MenuItem Header="Save" Style="{StaticResource menuItemStyle}"/>
+                <MenuItem x:Name="mQuit" Header="Quit" Click="mQuit_Click" Style="{StaticResource menuItemStyle}"/>
+            </MenuItem>
+            <MenuItem Header="View" Margin="2.5,0">
+                <MenuItem Header="Customers" Style="{StaticResource menuItemStyle}" Click="CustBtn_Click"/>
+                <MenuItem Header="Flights" Style="{StaticResource menuItemStyle}" Click="FlBtn_Click"/>
+                <MenuItem Header="Airlines" Style="{StaticResource menuItemStyle}" Click="AirlnBtn_Click"/>
+                <MenuItem Header="Passengers" Style="{StaticResource menuItemStyle}" Click="PassBtn_Click"/>
+            </MenuItem>
+            <MenuItem Header="Help"  Margin="2.5,0">
+                <MenuItem Header="About" Style="{StaticResource menuItemStyle}" Click="MenuAbout_Click"/>
+            </MenuItem>
+        </Menu>
+        
+        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
+            <Button x:Name="customersBtn" Content="Customers" BorderBrush="#FF5599FF" Style="{StaticResource btnStyle}" Click="customersBtn_Click"/>
+            <Button x:Name="airlinesBtn" Content="Airlines" BorderBrush="#FF99FF55" Style="{StaticResource btnStyle}" Click="airlinesBtn_Click"/>
+            <Button x:Name="flightsBtn" Content="Flights" BorderBrush="#FFFF5599" Style="{StaticResource btnStyle}" Click="flightsBtn_Click"/>
+            <Button x:Name="passengersBtn" Content="Passengers" BorderBrush="#FF55FF99" Style="{StaticResource btnStyle}" Click="passengersBtn_Click"/>
+        </StackPanel>
+    </DockPanel>
+</Window>

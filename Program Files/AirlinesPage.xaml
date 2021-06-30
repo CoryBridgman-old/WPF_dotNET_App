@@ -1,0 +1,97 @@
+﻿<Window x:Name="airlinesWindow" x:Class="Midterm___Cory_Bridgman_991199354.AirlinesPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Midterm___Cory_Bridgman_991199354"
+        mc:Ignorable="d"
+        Title="AirlinesPage" Height="450" Width="800">
+    <Window.Background>
+        <RadialGradientBrush>
+            <GradientStop Color="#FF678086" Offset="1"/>
+            <GradientStop Color="#FFCDE6ED" Offset="0"/>
+        </RadialGradientBrush>
+    </Window.Background>
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem x:Name="mnuContextInsert" Header="Insert" Click="MenuInsert_Click" Style="{StaticResource menuItemStyle}"/>
+            <MenuItem x:Name="mnuContextUpdate" Header="Update" Click="MenuUpdate_Click" Style="{StaticResource menuItemStyle}"/>
+            <MenuItem x:Name="mnuContextDelete" Header="Delete" Click="MenuDelete_Click" Style="{StaticResource menuItemStyle}"/>
+        </ContextMenu>
+    </Window.ContextMenu>
+
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Padding="25,0,0,0" Style="{StaticResource menuStyle}">
+            <MenuItem Header="File" Margin="2.5,0">
+                <MenuItem Header="New" Style="{StaticResource menuItemStyle}"/>
+                <MenuItem Header="Save" Style="{StaticResource menuItemStyle}"/>
+                <MenuItem x:Name="mQuit" Header="Quit" Style="{StaticResource menuItemStyle}" Click="mQuit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Edit"  Margin="2.5,0">
+                <MenuItem Header="Insert" Style="{StaticResource menuItemStyle}" Click="MenuInsert_Click"/>
+                <MenuItem Header="Update" Style="{StaticResource menuItemStyle}" Click="MenuUpdate_Click"/>
+                <MenuItem Header="Delete" Style="{StaticResource menuItemStyle}" Click="MenuDelete_Click"/>
+            </MenuItem>
+            <MenuItem Header="Help"  Margin="2.5,0">
+                <MenuItem x:Name="mAbout"  Header="About" Style="{StaticResource menuItemStyle}" Click="aAbout_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="Airlines Page" HorizontalAlignment="Left" Margin="348,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" Grid.ColumnSpan="2"/>
+            <ListBox x:Name="listAirlines" Margin="10,25,0,0" Background="#FF444455" TextElement.Foreground="White" ItemsSource="{Binding}" SelectionChanged="listAirlines_SelectionChanged"/>
+
+            <WrapPanel HorizontalAlignment="Left" Grid.Column="1" Margin="10,40,0,0" Height="25" VerticalAlignment="Top">
+                <Label Content="Airline Name" FontWeight="Bold" Width="100"/>
+                <TextBox x:Name="airnameBox" Style="{StaticResource txtBoxStyle}"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Left" Grid.Column="1" Margin="10,75,0,0" Height="25" VerticalAlignment="Top">
+                <Label Content="Seats" FontWeight="Bold" Width="100"/>
+                <TextBox x:Name="seatsBox" Style="{StaticResource txtBoxStyle}"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Left" Grid.Column="1" Margin="10,110,0,0" Height="25" VerticalAlignment="Top">
+                <Label Content="Food" FontWeight="Bold" Width="100"/>
+                <TextBox x:Name="foodBox" IsReadOnly="True" Style="{StaticResource txtBoxStyle}"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Left" Grid.Column="1" Margin="10,145,0,0" Height="25" VerticalAlignment="Top">
+                <Label Content="Aircraft" FontWeight="Bold" Width="100"/>
+                <TextBox x:Name="planeBox" IsReadOnly="True" Style="{StaticResource txtBoxStyle}"/>
+            </WrapPanel>
+
+            <WrapPanel Margin="0,134,0,0" Grid.ColumnSpan="2" Grid.Row="1" Height="33" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Button x:Name="Insert" Content="Insert" Style="{StaticResource btnStyle}" Click="Insert_Click" />
+                <Button x:Name="Update" Content="Update" Style="{StaticResource btnStyle}" Click="Update_Click" />
+                <Button x:Name="Delete" Content="Delete" Style="{StaticResource btnStyle}" Click="Delete_Click" />
+            </WrapPanel>
+
+            <!-- Food radio buttons -->
+            <Label x:Name="foodLabel" Content="Food Available" FontWeight="Bold" Margin="0,10,10,0" Grid.Row="1" HorizontalAlignment="Right" Height="25" Width="175" VerticalAlignment="Top"/>
+            <StackPanel x:Name="foodRadioButtons" Orientation="Vertical" Margin="0,40,0,0" Grid.Row="1" Height="102" VerticalAlignment="Top" HorizontalAlignment="Right" Width="195">
+                <RadioButton x:Name="foodVeal" GroupName="rdoFood" Content="Veal" Width="125" Checked="foodVeal_Checked"/>
+                <RadioButton x:Name="foodShorts" GroupName="rdoFood" Content="Shorts (yours)" Width="125" Checked="foodShorts_Checked"/>
+                <RadioButton x:Name="foodSeeds" GroupName="rdoFood" Content="Apple Seeds" Width="125" Checked="foodSeeds_Checked"/>
+                <RadioButton x:Name="foodTree" GroupName="rdoFood" Content="Apple Tree Seeds" Width="125" Checked="foodTree_Checked"/>
+                <RadioButton x:Name="foodLumber" GroupName="rdoFood" Content="Lumberjack Special" Width="125" Checked="foodLumber_Checked"/>
+            </StackPanel>
+
+            <!-- Plane radio buttons -->
+            <Label x:Name="planeLabel" Content="Planes Available" FontWeight="Bold" Margin="10,10,0,0" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Height="25" Width="151" VerticalAlignment="Top"/>
+            <StackPanel x:Name="planeRadioButtons" Orientation="Vertical" Margin="0,40,0,0" Grid.Row="1" Grid.Column="1" Height="132" VerticalAlignment="Top" HorizontalAlignment="Left" Width="195">
+                <RadioButton x:Name="planeSmack" GroupName="rdoPlane" Content="5-star forester" Width="125" Checked="planeSmack_Checked"/>
+                <RadioButton x:Name="plane112" GroupName="rdoPlane" Content="Boeing 112" Width="125" Checked="plane112_Checked"/>
+                <RadioButton x:Name="planeHar" GroupName="rdoPlane" Content="Harrier" Width="125" Checked="planeHar_Checked"/>
+                <RadioButton x:Name="planeHarar" GroupName="rdoPlane" Content="Harrierer" Width="125" Checked="planeHarar_Checked"/>
+                <RadioButton x:Name="planeNimbus" GroupName="rdoPlane" Content="Nimbus" Width="125" Checked="planeNimbus_Checked"/>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</Window>
